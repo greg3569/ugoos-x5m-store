@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gameday TV Guide</title>
+  <style>
+    :root {
+      --bg: #08131d;
+      --bg-2: #0c1d2b;
+      --panel: rgba(13, 24, 36, 0.92);
+      --panel-alt: rgba(16, 31, 45, 0.96);
+      --line: rgba(138, 167, 196, 0.18);
+      --text: #ecf5ff;
+      --muted: #9ab0c6;
+      --cyan: #52d4ff;
+      --green: #35f0b2;
+      --green-2: #1bc087;
+      --gold: #f7d580;
+      --red: #ff5b6e;
+      --purple: #a784ff;
+      --shadow: rgba(0,0,0,0.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #071119 0%, #0b1a2a 100%);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; }
+
+    .page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(61, 135, 190, 0.2), transparent 20%),
+        radial-gradient(circle at bottom right, rgba(49, 240, 178, 0.06), transparent 32%);
+    }
+
+    .container {
+      width: min(1260px, calc(100% - 26px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: rgba(5, 12, 18, 0.9);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      box-shadow: 0 0 18px rgba(82, 212, 255, 0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chip {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      border-radius: 999px;
+      padding: 9px 12px;
+      color: var(--text);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .chip.primary {
+      background: linear-gradient(180deg, var(--green), var(--green-2));
+      color: #03191a;
+      font-weight: 800;
+      border-color: transparent;
+    }
+
+    .hero-shell {
+      width: min(1260px, calc(100% - 26px));
+      margin: 22px auto 0;
+      background: rgba(8, 17, 25, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 24px 36px rgba(0,0,0,0.12);
+    }
+
+    .info-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 18px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(14, 22, 31, 0.8);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .status-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .status-live::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px rgba(53, 240, 178, 0.7);
+    }
+
+    .hero-banner {
+      position: relative;
+      padding: 30px 26px 26px;
+      background:
+        linear-gradient(135deg, rgba(6, 14, 20, 0.7), rgba(10, 29, 40, 0.78)),
+        radial-gradient(circle at 30% 40%, rgba(76, 130, 202, 0.35), transparent 34%);
+    }
+
+    .featured-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+      min-height: 230px;
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(135deg, rgba(10, 17, 25, 0.9), rgba(9, 30, 43, 0.8));
+      overflow: hidden;
+    }
+
+    .featured-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(125deg, rgba(80, 180, 255, 0.06), transparent 32%, rgba(32, 247, 182, 0.04));
+    }
+
+    .featured-main,
+    .featured-side {
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .featured-main h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 3vw, 4rem);
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .meta-pill {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 7px 10px;
+    }
+
+    .callout {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .watch-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, var(--green), var(--green-2));
+      color: #051d1a;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0 18px;
+      box-shadow: 0 14px 22px rgba(53, 240, 178, 0.25);
+    }
+
+    .hero-score {
+      margin-left: auto;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      color: var(--text);
+    }
+
+    .featured-side {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 12px;
+      min-height: 100%;
+    }
+
+    .fixture-box {
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(16, 32, 44, 0.9), rgba(11, 19, 28, 0.86));
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 16px;
+    }
+
+    .fixture-box h3 {
+      margin: 0 0 8px;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .team-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 10px 0;
+      font-weight: 700;
+    }
+
+    .team-row .team {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .shield {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 800;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .live-mini {
+      text-align: center;
+      padding: 12px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 0.82fr;
+      gap: 18px;
+      width: min(1260px, calc(100% - 26px));
+      margin: 18px auto 24px;
+    }
+
+    .panel {
+      background: rgba(12, 23, 36, 0.86);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 20px rgba(0,0,0,0.1);
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.015);
+    }
+
+    .panel-header h2 {
+      margin: 0;
+      font-size: 19px;
+      letter-spacing: -0.04em;
+    }
+
+    .panel-header .small {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .event-card {
+      background: linear-gradient(180deg, rgba(13, 28, 40, 0.92), rgba(11, 20, 29, 0.9));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(82,212,255,0.06), rgba(53,240,178,0.04));
+      pointer-events: none;
+    }
+
+    .event-card > * { position: relative; z-index: 1; }
+
+    .event-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.025);
+      color: var(--muted);
+    }
+
+    .badge.live { color: var(--green); border-color: rgba(53, 240, 178, 0.25); background: rgba(53, 240, 178, 0.08); }
+    .badge.ppv { color: var(--gold); border-color: rgba(247,213,128,0.25); background: rgba(247,213,128,0.08); }
+
+    .event-card h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      letter-spacing: -0.03em;
+    }
+
+    .event-meta {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .event-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .watch-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 90px;
+      height: 30px;
+      border-radius: 9px;
+      background: rgba(82,212,255,0.08);
+      border: 1px solid rgba(82,212,255,0.16);
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .schedule-panel {
+      padding: 18px;
+    }
+
+    .schedule-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 62px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      background: rgba(255,255,255,0.024);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+
+    .time-box {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .item-main {
+      min-width: 0;
+    }
+
+    .item-main strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+
+    .item-main span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .item-tag {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .side-panel {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-list {
+      padding: 14px 18px 18px;
+    }
+
+    .channel-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .channel-item:last-child { border-bottom: none; }
+
+    .channel-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .channel-info { color: var(--muted); font-size: 11px; }
+
+    .channel-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(53, 240, 178, 0.08);
+      border: 1px solid rgba(53, 240, 178, 0.18);
+      color: var(--green);
+    }
+
+    .channel-live::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    @media (max-width: 980px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .nav { flex-wrap: wrap; justify-content: center; padding: 12px 0; }
+      .nav-links { justify-content: center; }
+      .card-grid { grid-template-columns: 1fr; }
+      .callout { flex-direction: column; align-items: flex-start; }
+      .hero-score { margin-left: 0; }
+      .schedule-item { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand"><span class="brand-mark"></span> Gameday TV</div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#">Live</a>
+          <a href="#">Sports</a>
+          <a href="#">Movies</a>
+          <a href="#">Series</a>
+          <a href="#">Guide</a>
+          <a href="#">News</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="chip">Search</button>
+          <button class="chip primary">Watch Now</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero-shell">
+      <div class="info-strip">
+        <span>Live guide</span>
+        <span class="status-live">Live now</span>
+      </div>
+
+      <div class="hero-banner">
+        <div class="featured-card">
+          <div class="featured-main">
+            <div class="eyebrow" id="hero-tag">Prime Time</div>
+            <h1 id="hero-title">Chiefs @ Eagles</h1>
+            <div class="meta-row">
+              <span class="meta-pill" id="hero-league">NFL Sunday Night Football</span>
+              <span class="meta-pill" id="hero-time">8:15 PM</span>
+              <span class="meta-pill" id="hero-channel">Sky Sports Main Event</span>
+            </div>
+            <p id="hero-description" style="margin:0;color:var(--muted);max-width:560px;line-height:1.6;">
+              A high-stakes primetime clash with playoff implications across both conferences.
+            </p>
+            <div class="callout">
+              <a class="watch-btn" href="#">Watch Now</a>
+              <div class="hero-score" id="hero-score">27 - 24</div>
+            </div>
+          </div>
+
+          <div class="featured-side">
+            <div class="fixture-box">
+              <h3>Match Centre</h3>
+              <div class="team-row">
+                <div class="team"><span class="shield" style="background:linear-gradient(180deg,#a91f2d,#f7f7f7);color:#0b1015;">KC</span> Chiefs</div>
+                <strong>27</strong>
+              </div>
+              <div class="team-row">
+                <div class="team"><span class="shield" style="background:linear-gradient(180deg,#0e8ddc,#f4f4f4);color:#0b1015;">PHI</span> Eagles</div>
+                <strong>24</strong>
+              </div>
+            </div>
+            <div class="live-mini" id="hero-network">Sky Sports</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="main-grid">
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Live now</h2>
+          <span class="small">Updated 2m ago</span>
+        </div>
+        <div class="card-grid" id="live-cards"></div>
+      </section>
+
+      <aside class="side-panel">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Upcoming</h2>
+            <span class="small">Tonight</span>
+          </div>
+          <div class="mini-list" id="upcoming-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Channels</h2>
+            <span class="small">Live</span>
+          </div>
+          <div class="mini-list" id="channels-list"></div>
+        </section>
+      </aside>
+    </div>
+
+    <div class="container" style="padding-bottom:30px;">
+      <section class="panel">
+        <div class="panel-header">
+          <h2>TV guide</h2>
+          <span class="small">Tonight</span>
+        </div>
+        <div class="schedule-panel">
+          <ul class="schedule-list" id="guide-list"></ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    async function loadData() {
+      try {
+        const response = await fetch('./data/gameday.json');
+        const data = await response.json();
+        renderHero(data.hero);
+        renderLive(data.liveNow);
+        renderUpcoming(data.upcoming);
+        renderGuide(data.guide);
+      } catch (err) {
+        console.error('Failed to load data:', err);
+      }
+    }
+
+    function renderHero(hero) {
+      document.getElementById('hero-tag').textContent = hero.tag;
+      document.getElementById('hero-title').textContent = hero.title;
+      document.getElementById('hero-league').textContent = hero.league;
+      document.getElementById('hero-time').textContent = hero.time;
+      document.getElementById('hero-channel').textContent = hero.channel;
+      document.getElementById('hero-description').textContent = hero.description;
+      document.getElementById('hero-score').textContent = hero.score;
+      document.getElementById('hero-network').textContent = hero.network;
+    }
+
+    function renderLive(events) {
+      const host = document.getElementById('live-cards');
+      host.innerHTML = events.map((item) => `
+        <article class="event-card">
+          <div class="event-top">
+            <span class="badge ${item.status === 'PPV' ? 'ppv' : 'live'}">${item.status}</span>
+            <span class="small" style="color:var(--muted);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;">${item.league}</span>
+          </div>
+          <h3>${item.title}</h3>
+          <div class="event-meta">${item.channel}<br>${item.time}</div>
+          <div class="event-foot">
+            <span>${item.status}</span>
+            <a class="watch-link" href="#">Watch</a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function renderUpcoming(events) {
+      const host = document.getElementById('upcoming-list');
+      host.innerHTML = events.map((item) => `
+        <div class="channel-item">
+          <div>
+            <div class="channel-title">${item.title}</div>
+            <div class="channel-info">${item.league} • ${item.channel}</div>
+          </div>
+          <div class="channel-live" style="color:var(--gold);border-color:rgba(247,213,128,0.18);background:rgba(247,213,128,0.04);">${item.status}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderGuide(events) {
+      const host = document.getElementById('guide-list');
+      host.innerHTML = events.map((item) => `
+        <li class="schedule-item">
+          <div class="time-box">${item.time}</div>
+          <div class="item-main">
+            <strong>${item.event}</strong>
+            <span>${item.channel}</span>
+          </div>
+          <div class="item-tag">${item.type}</div>
+        </li>
+      `).join('');
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
