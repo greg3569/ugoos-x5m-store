@@ -1,194 +1,588 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Ugoos X5M TV Box – Official Store</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Ugoos X5M — Next-generation Android TV box built for IPTV, 4K streaming, and power users. Fast UK shipping.">
-<!-- Open Graph -->
-<meta property="og:title" content="Ugoos X5M TV Box – Official Store">
-<meta property="og:description" content="Next-generation Android TV box built for IPTV, 4K streaming, and power users.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://greg3569.github.io/ugoos-x5m-store/">
-<meta property="og:image" content="https://raw.githubusercontent.com/greg3569/ugoos-x5m-store/main/placeholder.png">
-<style>
-:root{
-  --bg:#080b10;
-  --card:#111827;
-  --muted:#f5f5f5;
-  --accent:#ff6a00;
-  --accent-dark:#e45c00;
-}
-body { margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(--muted); }
-a { color:inherit; text-decoration:none; }
-header { padding:40px 20px; background:#05070b; border-bottom:1px solid #222; }
-.nav { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
-.logo { font-weight:bold; letter-spacing:1px; }
-.nav-links a { margin-left:20px; font-size:14px; text-transform:uppercase; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ugoos X5M TV Box | Official Store</title>
+  <meta name="description" content="Ugoos X5M Android TV box with 4K HDR streaming, IPTV support, fast connectivity, and custom firmware flexibility.">
+  <style>
+    :root {
+      --bg: #070b12;
+      --bg-soft: #0e1724;
+      --panel: rgba(17, 24, 39, 0.9);
+      --panel-strong: #121c2b;
+      --panel-border: rgba(255,255,255,0.08);
+      --text: #f4f6fb;
+      --muted: #9ca8b9;
+      --primary: #ff7a1a;
+      --primary-dark: #de6700;
+      --secondary: #1d9bf0;
+      --success: #2ad59e;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
 
-.hero { max-width:1100px; margin:40px auto; display:flex; flex-wrap:wrap; gap:40px; align-items:center; padding:0 20px; }
-.hero-text { flex:1 1 320px; }
-.hero-text h1 { font-size:40px; margin-bottom:10px; }
-.hero-text p { margin-bottom:20px; }
-.hero-cta { display:flex; gap:15px; align-items:center; }
-.btn-primary { background:var(--accent); border:none; padding:14px 26px; border-radius:6px; font-size:16px; cursor:pointer; color:#fff; }
-.btn-primary:hover { background:var(--accent-dark); }
-.price-tag { font-size:18px; opacity:0.9; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255,122,26,0.12), transparent 30%),
+        linear-gradient(180deg, #05080d 0%, #0a1119 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-.hero-image { flex:1 1 280px; text-align:center; }
-.hero-image-box { background:var(--card); border-radius:16px; padding:30px 20px; box-shadow:0 0 40px rgba(0,0,0,0.6); }
-.hero-image-box img { width:220px; height:auto; border-radius:12px; display:block; margin:0 auto 10px; }
-.hero-image-box div { width:220px; height:140px; margin:0 auto 10px; border-radius:12px; background:linear-gradient(135deg,#1f2937,#4b5563); }
-.hero-image-box span { font-size:13px; opacity:0.8; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
 
-.section { max-width:1100px; margin:40px auto; padding:0 20px; }
-.section h2 { margin-bottom:20px; font-size:26px; }
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-.features { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
-.feature-box { background:var(--card); padding:18px; border-radius:10px; border:1px solid #1f2937; }
-.feature-box h3 { margin-bottom:8px; font-size:18px; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5, 8, 13, 0.8);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--panel-border);
+    }
 
-.specs-table { width:100%; border-collapse:collapse; margin-top:10px; background:#0b1018; border-radius:10px; overflow:hidden; }
-.specs-table td { padding:10px 12px; border-bottom:1px solid #1f2937; font-size:14px; }
-.specs-table tr:last-child td { border-bottom:none; }
-.specs-table td:first-child { width:35%; opacity:0.8; }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 72px;
+    }
 
-.grid-two { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+    }
 
-.faq-item { margin-bottom:15px; }
-.faq-item strong { display:block; margin-bottom:4px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-.buy-block { text-align:center; padding:30px 20px; background:#05070b; border-radius:14px; border:1px solid #1f2937; }
-.buy-block p { margin:8px 0; }
+    .nav-links a:hover { color: var(--text); }
 
-footer { margin-top:40px; padding:20px; text-align:center; font-size:13px; background:#05070b; border-top:1px solid #222; }
+    .hero {
+      padding: 52px 0 30px;
+    }
 
-/* Responsive tweaks */
-@media (max-width:520px){
-  .hero-text h1{font-size:28px}
-  .hero{margin:24px auto; gap:18px}
-}
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
 
-/* Focus styles for accessibility */
-a:focus, button:focus { outline:3px solid rgba(255,106,0,0.25); outline-offset:2px; }
-</style>
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 8px 14px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 14px var(--success);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 1.02;
+      margin: 0 0 18px;
+      letter-spacing: -0.05em;
+    }
+
+    .lead {
+      max-width: 560px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 16px 24px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 25px rgba(255,122,26,0.22);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    .price {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 10px 0 0;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .price strong {
+      font-size: 1.6rem;
+      letter-spacing: -0.04em;
+    }
+
+    .mini-info {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .product-panel {
+      position: relative;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(20,28,38,0.95), rgba(8,12,18,0.96));
+      border: 1px solid var(--panel-border);
+      border-radius: 30px;
+      box-shadow: 0 25px 90px rgba(0,0,0,0.45);
+    }
+
+    .product-thumb {
+      background: linear-gradient(180deg, #1f2f46 0%, #0f1728 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .trusted-bar {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+      margin: 28px auto 12px;
+    }
+
+    .trusted-item {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 18px 14px;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    main section {
+      padding: 26px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      letter-spacing: -0.05em;
+    }
+
+    .section-head span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--panel-border);
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,122,26,0.12);
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .specs-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .specs-card,
+    .faq-card,
+    .deal-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--panel-border);
+      border-radius: 22px;
+      padding: 24px 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: var(--muted);
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    td:first-child {
+      font-weight: 700;
+      color: var(--text);
+      width: 40%;
+    }
+
+    .faq-list, .offer-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .faq-item {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(8,12,18,0.7);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .faq-item span {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .deal-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(255,122,26,0.12), rgba(255,255,255,0.01));
+    }
+
+    .deal-card h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: -0.05em;
+    }
+
+    .deal-card .price-tag {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 12px 0 18px;
+      letter-spacing: -0.05em;
+    }
+
+    .offer-list {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding: 30px 0 40px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-wrap,
+      .specs-wrap,
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 16px 0 14px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .trusted-bar,
+      .features-grid,
+      .specs-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .cta-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid rgba(255, 122, 26, 0.7);
+      outline-offset: 3px;
+    }
+  </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top">Ugoos X5M</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#specs">Specs</a>
+        <a href="#faq">FAQ</a>
+        <a href="#buy">Buy</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <div class="nav">
-    <div class="logo">Ugoos X5M</div>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#features">Features</a>
-      <a href="#specs">Specs</a>
-      <a href="#faq">FAQ</a>
-      <a href="#buy">Buy</a>
-    </nav>
-  </div>
-</header>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Next-gen streaming power</div>
+          <h1>Ugoos X5M TV Box</h1>
+          <p class="lead">Built for IPTV enthusiasts, 4K streamers, power users, and custom setup fans who want smooth performance and total control.</p>
 
-<main>
-<section class="hero">
-  <div class="hero-text">
-    <h1>Ugoos X5M TV Box</h1>
-    <p>Next‑generation Android TV box built for IPTV, 4K streaming, and power users who demand more.</p>
-    <div class="hero-cta">
-      <a class="btn-primary" href="#buy">Buy Now</a>
-      <span class="price-tag">From £XX.XX – Fast UK Shipping</span>
-    </div>
-    <p style="margin-top:10px;font-size:13px;opacity:0.8;">
-      Ideal for IPTV, Kodi, emulation, and custom firmware setups.
-    </p>
-  </div>
-  <div class="hero-image">
-    <div class="hero-image-box">
-      <!-- use a checked-in placeholder if available; browser will show broken image if not -->
-      <img src="placeholder.png" alt="Ugoos X5M product render placeholder" loading="lazy" width="220" height="140" onerror="this.style.display='none'">
-      <div aria-hidden="true"></div>
-      <span>Product render placeholder – replace with real X5M image.</span>
-    </div>
-  </div>
-</section>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#buy">Buy now</a>
+            <a class="btn btn-secondary" href="#specs">View specs</a>
+            <div class="price"><span>From</span><strong>£149</strong></div>
+          </div>
 
-<section class="section" id="features">
-  <h2>Why Choose the Ugoos X5M</h2>
-  <div class="features">
-    <div class="feature-box">
-      <h3>Powerful Amlogic Chipset</h3>
-      <p>Modern CPU/GPU architecture for smooth 4K playback, fast app switching, and responsive UI.</p>
-    </div>
-    <div class="feature-box">
-      <h3>4K HDR Streaming</h3>
-      <p>Enjoy crisp, vibrant picture quality for movies, sports, and IPTV channels.</p>
-    </div>
-    <div class="feature-box">
-      <h3>Fast Connectivity</h3>
-      <p>Dual‑band Wi‑Fi and LAN options (depending on model) for stable, high‑bitrate streams.</p>
-    </div>
-    <div class="feature-box">
-      <h3>Advanced User Control</h3>
-      <p>Perfect for custom launchers, advanced settings, and enthusiasts who like to tweak.</p>
-    </div>
-  </div>
-</section>
+          <div class="mini-info">Free UK delivery • 14-day returns • Secure checkout</div>
+        </div>
 
-<section class="section" id="specs">
-  <h2>Technical Specifications</h2>
-  <table class="specs-table">
-    <tr><td>Chipset</td><td>Amlogic S905X5M</td></tr>
-    <tr><td>CPU</td><td>Quad‑Core ARM Cortex‑A55</td></tr>
-    <tr><td>GPU</td><td>Mali‑G31</td></tr>
-    <tr><td>RAM</td><td>4GB / 8GB (model dependent)</td></tr>
-    <tr><td>Storage</td><td>32GB / 64GB</td></tr>
-    <tr><td>Operating System</td><td>Android (with Ugoos customisations)</td></tr>
-    <tr><td>Connectivity</td><td>Wi‑Fi, Bluetooth, Ethernet</td></tr>
-    <tr><td>Ports</td><td>HDMI, USB 3.0, USB 2.0, LAN, AV</td></tr>
-  </table>
-</section>
-
-<section class="section">
-  <div class="grid-two">
-    <div>
-      <h2>What’s in the Box</h2>
-      <ul>
-        <li>Ugoos X5M TV Box</li>
-        <li>HDMI Cable</li>
-        <li>Power Adapter</li>
-        <li>Remote Control</li>
-        <li>User Guide</li>
-      </ul>
-    </div>
-    <div id="faq">
-      <h2>FAQ</h2>
-      <div class="faq-item">
-        <strong>Does it support IPTV apps?</strong>
-        <span>Yes. It’s ideal for popular IPTV apps and custom configurations.</span>
+        <div class="product-panel">
+          <div class="product-thumb">
+            <img src="product-art.svg" alt="Ugoos X5M Android TV box illustration" width="620" height="520">
+          </div>
+          <div class="product-meta">
+            <span class="chip">4K HDR</span>
+            <span>Android TV / IPTV Ready</span>
+          </div>
+        </div>
       </div>
-      <div class="faq-item">
-        <strong>Is it Google‑certified?</strong>
-        <span>Not officially certified; some premium streaming apps may have limitations.</span>
+    </section>
+
+    <section>
+      <div class="container trusted-bar" aria-label="Store trust highlights">
+        <div class="trusted-item">Fast UK Shipping</div>
+        <div class="trusted-item">4K HDR Ready</div>
+        <div class="trusted-item">IPTV Friendly</div>
+        <div class="trusted-item">Secure checkout</div>
       </div>
-      <div class="faq-item">
-        <strong>Do you offer returns?</strong>
-        <span>Standard return window (e.g. 14 days) – confirm your exact policy here.</span>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why choose the X5M</h2>
+          <span>Powerful streaming with comfort and flexibility</span>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Performance</h3>
+            <p>Modern Amlogic hardware for smooth 4K playback, quick app launches, and fast multitasking.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📺</div>
+            <h3>4K HDR</h3>
+            <p>Enjoy crisp visuals and vibrant colour for movies, sport, and IPTV channels in ultra-clear detail.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📶</div>
+            <h3>Reliable Connectivity</h3>
+            <p>Dual-band Wi-Fi and Ethernet support for stable streaming and reliable app performance.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🛠️</div>
+            <h3>Custom Control</h3>
+            <p>Ideal for custom launchers, advanced settings, and users who like tweaking their media setup.</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="buy">
-  <div class="buy-block">
-    <h2>Buy Ugoos X5M Today</h2>
-    <p>From £XX.XX – UK‑based seller, fast dispatch.</p>
-    <p>Secure payment via PayPal / Card (configure your checkout link).</p>
-    <a class="btn-primary" href="#">Order Now</a>
-  </div>
-</section>
-</main>
+    <section id="specs">
+      <div class="container specs-wrap">
+        <div class="specs-card">
+          <div class="section-head" style="margin-bottom: 10px;">
+            <h2>Technical specs</h2>
+          </div>
+          <table>
+            <tbody>
+              <tr><td>Chipset</td><td>Amlogic S905X5M</td></tr>
+              <tr><td>CPU</td><td>Quad-core ARM Cortex-A55</td></tr>
+              <tr><td>GPU</td><td>Mali-G31</td></tr>
+              <tr><td>RAM</td><td>4GB / 8GB</td></tr>
+              <tr><td>Storage</td><td>32GB / 64GB</td></tr>
+              <tr><td>Output</td><td>4K UHD, HDR</td></tr>
+              <tr><td>Connectivity</td><td>Wi‑Fi, Bluetooth, Ethernet</td></tr>
+              <tr><td>Ports</td><td>HDMI, USB 3.0, USB 2.0, LAN, AV</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-<footer>
-  © 2026 Ugoos X5M – Your Store Name Here
-</footer>
+        <div class="deal-card" id="buy">
+          <h3>Buy the X5M</h3>
+          <div class="price-tag">£149</div>
+          <ul class="offer-list">
+            <li>Includes HDMI cable and power adapter</li>
+            <li>Fast dispatch from the UK</li>
+            <li>Secure PayPal / card payment</li>
+          </ul>
+          <a class="btn btn-primary" href="#">Order now</a>
+        </div>
+      </div>
+    </section>
 
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>FAQ</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <strong>Does it support IPTV apps?</strong>
+            <span>Yes — it’s ideal for popular IPTV apps and custom media setups.</span>
+          </div>
+
+          <div class="faq-item">
+            <strong>Is it Google-certified?</strong>
+            <span>Not officially certified, so some premium apps may have restrictions depending on your setup.</span>
+          </div>
+
+          <div class="faq-item">
+            <strong>Do you offer returns?</strong>
+            <span>Yes — standard return policy applies. Contact us for the exact terms.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Ugoos X5M — Your Store Name Here
+  </footer>
 </body>
 </html>
