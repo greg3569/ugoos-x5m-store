@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ugoos X5M TV Box | Official Store</title>
-  <meta name="description" content="Ugoos X5M Android TV box with 4K HDR streaming, IPTV support, fast connectivity, and custom firmware flexibility.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ugoos X5M Pro</title>
+  <meta name="description" content="Ugoos X5M Pro Android TV box landing page." />
   <style>
     :root {
-      --bg: #070b12;
-      --bg-soft: #0e1724;
-      --panel: rgba(17, 24, 39, 0.9);
-      --panel-strong: #121c2b;
-      --panel-border: rgba(255,255,255,0.08);
-      --text: #f4f6fb;
-      --muted: #9ca8b9;
-      --primary: #ff7a1a;
-      --primary-dark: #de6700;
-      --secondary: #1d9bf0;
-      --success: #2ad59e;
-      --shadow: rgba(0,0,0,0.35);
+      --bg: #07131f;
+      --bg-2: #0a1b2c;
+      --bg-3: #0d2137;
+      --panel: rgba(13, 31, 45, 0.9);
+      --panel-2: rgba(12, 22, 34, 0.8);
+      --line: rgba(141, 168, 197, 0.15);
+      --text: #edf5ff;
+      --muted: #8fa4bb;
+      --green: #3ef1b9;
+      --green-2: #2af0b2;
+      --gold: #f4d795;
+      --gold-2: #b9862b;
+      --shadow: rgba(0,0,0,0.38);
+      --soft-shadow: rgba(13, 18, 27, 0.9);
     }
 
     * { box-sizing: border-box; }
@@ -26,618 +28,927 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(255,122,26,0.12), transparent 30%),
-        linear-gradient(180deg, #05080d 0%, #0a1119 100%);
+      background: linear-gradient(180deg, #091421 0%, #081a2b 100%);
       color: var(--text);
-      line-height: 1.6;
     }
 
-    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
     button { font: inherit; }
 
+    .page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(45, 121, 180, 0.2), transparent 20%),
+        linear-gradient(180deg, rgba(17, 24, 37, 0.45), rgba(9, 15, 23, 0.7));
+    }
+
     .container {
-      width: min(1100px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 26px));
       margin: 0 auto;
     }
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(5, 8, 13, 0.8);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--panel-border);
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 72px;
-    }
-
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.92rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .hero {
-      padding: 52px 0 30px;
+    .top-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-top: 22px;
     }
 
     .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 32px;
-      align-items: center;
+      background: rgba(7, 16, 23, 0.76);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      padding: 8px 14px;
-      margin-bottom: 18px;
+    .hero-top {
+      padding: 30px 24px 8px;
     }
 
-    .eyebrow .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--success);
-      box-shadow: 0 0 14px var(--success);
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4.4rem);
-      line-height: 1.02;
-      margin: 0 0 18px;
-      letter-spacing: -0.05em;
-    }
-
-    .lead {
-      max-width: 560px;
-      font-size: 1.08rem;
-      color: var(--muted);
-      margin: 0 0 24px;
-    }
-
-    .cta-row {
+    .hero-badge {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 18px;
-      margin-bottom: 18px;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(233, 243, 255, 0.7);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      opacity: 0.9;
+      margin-bottom: 8px;
     }
 
-    .btn {
+    .hero-badge .small-mark {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--green), #1fb9b9);
+      box-shadow: 0 0 16px rgba(58,244,177,0.8);
+    }
+
+    .shield-hero {
+      width: min(760px, 92%);
+      margin: 0 auto;
+      aspect-ratio: 2.6;
+      position: relative;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(38, 65, 92, 0.9), rgba(7, 18, 29, 0.96) 50%),
+        linear-gradient(180deg, rgba(17, 36, 54, 0.9), rgba(8, 19, 28, 0.98));
+      border: 1px solid rgba(220, 185, 97, 0.13);
+      box-shadow: inset 0 0 16px rgba(40, 111, 175, 0.18);
+      overflow: hidden;
+    }
+
+    .shield-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, rgba(5,9,14,0.2), rgba(255,255,255,0.02), rgba(3,10,15,0.18));
+      pointer-events: none;
+    }
+
+    .shield-hero .inner {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 58%;
+      height: 72%;
+      border-radius: 50% 50% 48% 48% / 42% 42% 58% 58%;
+      background: linear-gradient(180deg, #b88a2f 0%, #f9df9a 30%, #a76f16 50%, #e6c77e 100%);
+      box-shadow: inset 0 0 12px rgba(0,0,0,0.18), 0 18px 28px rgba(0,0,0,0.22);
+      display: grid;
+      place-items: center;
+    }
+
+    .shield-hero .inner::before {
+      content: "";
+      position: absolute;
+      inset: 20px 24px 16px;
+      border-radius: 50% 50% 48% 48% / 42% 42% 58% 58%;
+      background: linear-gradient(180deg, #0a1d2b, #102d40);
+      border: 2px solid rgba(255, 228, 156, 0.38);
+      box-shadow: inset 0 0 18px rgba(30, 78, 107, 0.5);
+    }
+
+    .shield-hero .shield-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 78%;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .shield-hero .shield-text .topline {
+      font-size: 18px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #f7dc93;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.32);
+      margin-bottom: 8px;
+    }
+
+    .shield-hero .shield-text .brand {
+      font-size: 28px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #f7dc93;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.32);
+      margin-top: 10px;
+    }
+
+    .shield-hero .shield-text .brand span {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 12px;
-      padding: 16px 24px;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      border: 1px solid transparent;
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 35%, rgba(249, 228, 170, 0.18), rgba(169, 101, 17, 0.28));
+      border: 4px solid rgba(255,232,173,0.4);
+      margin: 0 auto 12px;
+      position: relative;
+      font-size: 18px; letter-spacing: 0.2em;
+      opacity: 0.95;
+    }
+
+    .shield-hero .shield-text .brand span::before,
+    .shield-hero .shield-text .brand span::after {
+      content: "";
+      position: absolute;
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,240,190,0.4);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .shield-hero .shield-text .brand span::before { left: -14px; }
+    .shield-hero .shield-text .brand span::after { right: -14px; }
+
+    .mini-scaffold {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .hero-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 14px 0 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(199, 213, 228, 0.15);
+      background: rgba(9, 18, 27, 0.7);
+      color: rgba(210, 227, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 9px;
       cursor: pointer;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 25px rgba(255,122,26,0.22);
+    .main-box {
+      width: min(1180px, calc(100% - 26px));
+      margin: 18px auto 0;
+      padding: 0 0 12px;
     }
 
-    .btn-primary {
-      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: #fff;
+    .prod-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 18px;
+      align-items: start;
     }
 
-    .btn-secondary {
+    .left-panel, .right-panel {
+      background: rgba(12, 22, 34, 0.84);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .topline-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px 12px;
+      color: rgba(207,219,233,0.78);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .topline-meta .muted { color: rgba(207,219,233,0.65); }
+
+    .mini-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 0 18px 12px;
+    }
+
+    .mini-badges .tag {
+      border-radius: 8px;
+      padding: 4px 8px;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       background: rgba(255,255,255,0.03);
-      border-color: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(220,234,255,0.8);
+    }
+
+    .product-stage {
+      margin: 0 18px 16px;
+      background: linear-gradient(180deg, rgba(5, 17, 24, 0.4), rgba(8, 18, 29, 0.8));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      overflow: hidden;
+      padding: 10px;
+    }
+
+    .device-visual {
+      position: relative;
+      height: 370px;
+      border-radius: 12px;
+      background:
+        linear-gradient(180deg, rgba(7, 16, 24, 0.86), rgba(4, 16, 22, 0.8)),
+        radial-gradient(circle at 32% 28%, rgba(10, 172, 186, 0.24), transparent 30%);
+      overflow: hidden;
+      box-shadow: inset 0 0 14px rgba(15, 35, 51, 0.7);
+    }
+
+    .device-visual::before {
+      content: "";
+      position: absolute;
+      inset: 28px 36px 22px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(15,28,39,0.2), rgba(18,45,55,0.35));
+      border: 1px solid rgba(108, 122, 136, 0.2);
+      box-shadow: inset 0 0 10px rgba(12, 39, 49, 0.8);
+    }
+
+    .device-visual .box {
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      transform: translate(-50%, -50%);
+      width: 58%;
+      height: 52%;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(25,30,33,0.8), rgba(17,27,34,0.96));
+      border: 2px solid rgba(150, 169, 182, 0.3);
+      box-shadow: 0 18px 28px rgba(0,0,0,0.2), inset 0 0 12px rgba(14, 28, 36, 0.9);
+    }
+
+    .device-visual .box::before {
+      content: "";
+      position: absolute;
+      inset: 20px 22px 12px;
+      border-radius: 12px;
+      background: linear-gradient(120deg, #2ec2ff, #2e6bd8 50%, #1ac5af 100%);
+      box-shadow: inset 0 0 18px rgba(255,255,255,0.12);
+      opacity: 0.9;
+    }
+
+    .device-visual .box::after {
+      content: "X5M";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      font-size: 30px;
+      color: rgba(255,255,255,0.88);
+      text-shadow: 0 0 15px rgba(255,255,255,0.18);
+    }
+
+    .device-visual .label {
+      position: absolute;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(206,216,232,0.76);
+    }
+
+    .thumb-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      padding: 0 18px 16px;
+    }
+
+    .thumb {
+      height: 82px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(14, 57, 69, 0.8), rgba(8, 17, 30, 0.9));
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thumb:nth-child(2) { background: linear-gradient(135deg, rgba(18, 57, 66, 0.82), rgba(14, 26, 34, 0.92)); }
+    .thumb:nth-child(3) { background: linear-gradient(135deg, rgba(10, 32, 44, 0.9), rgba(14, 27, 33, 0.92)); }
+    .thumb:nth-child(4) { background: linear-gradient(135deg, rgba(20, 45, 58, 0.86), rgba(9, 17, 24, 0.92)); }
+
+    .thumb::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 8px;
+      background: linear-gradient(120deg, rgba(70,141,255,0.9), rgba(34,180,156,0.8));
+      opacity: 0.75;
+    }
+
+    .promo-strip {
+      margin: 0 18px 18px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(14, 31, 46, 0.7), rgba(12, 25, 37, 0.9));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      color: rgba(222, 233, 245, 0.82);
+      font-size: 13px;
+    }
+
+    .promo-strip .tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--green);
+      border: 1px solid rgba(58,244,177,0.3);
+      background: rgba(58,244,177,0.08);
+      border-radius: 999px;
+      padding: 6px 8px;
+    }
+
+    .promo-strip strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .right-panel {
+      padding-bottom: 12px;
+    }
+
+    .buy-box {
+      padding: 18px 18px 12px;
+    }
+
+    .product-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .stars {
+      color: var(--green);
+      letter-spacing: 0.2em;
+      font-size: 11px;
+    }
+
+    .subline {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 18px 0 10px;
+    }
+
+    .price-row .amount {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.06em;
       color: var(--text);
     }
 
-    .price {
+    .price-row .vat {
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .info-grid .mini {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.02);
+      padding: 8px 8px 7px;
+      text-align: center;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .info-grid .mini strong {
+      display: block;
+      font-size: 12px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      margin-top: 3px;
+      text-transform: none;
+    }
+
+    .qty-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 18px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(7, 15, 21, 0.78);
+      border-radius: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .qty-controls {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 0 10px 0 0;
       color: var(--text);
-      font-weight: 700;
-      font-size: 1.05rem;
     }
 
-    .price strong {
-      font-size: 1.6rem;
+    .qty-controls button {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .qty-total {
+      margin-top: 6px;
+      text-align: right;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 18px;
       letter-spacing: -0.04em;
     }
 
-    .mini-info {
-      color: var(--muted);
-      font-size: 0.92rem;
+    .cta-block {
+      margin-top: 16px;
+      display: block;
+      background: linear-gradient(180deg, #3ef0bc 0%, #16d39b 100%);
+      color: #061d1b;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 800;
+      padding: 16px 18px;
+      box-shadow: 0 12px 24px rgba(47, 241, 184, 0.18);
     }
 
-    .product-panel {
-      position: relative;
-      padding: 18px;
-      background: linear-gradient(180deg, rgba(20,28,38,0.95), rgba(8,12,18,0.96));
-      border: 1px solid var(--panel-border);
-      border-radius: 30px;
-      box-shadow: 0 25px 90px rgba(0,0,0,0.45);
+    .secondary-note {
+      margin-top: 10px;
+      display: block;
+      text-align: center;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    .product-thumb {
-      background: linear-gradient(180deg, #1f2f46 0%, #0f1728 100%);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 22px;
-      padding: 18px;
-    }
-
-    .product-meta {
+    .shipping-strip {
+      margin-top: 14px;
+      padding: 12px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 6px;
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
-    .chip {
+    .shipping-strip span {
       display: inline-flex;
       align-items: center;
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text);
-      font-size: 0.75rem;
-      letter-spacing: 0.06em;
+      gap: 6px;
+    }
+
+    .shipping-strip span::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 14px rgba(58,244,177,0.8);
+    }
+
+    .feature-summary {
+      padding: 18px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 18px;
+    }
+
+    .feature-summary h3 {
+      margin: 0 0 14px;
+      font-size: 13px;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(227, 236, 246, 0.8);
     }
 
-    .trusted-bar {
+    .feature-list {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap: 14px;
-      margin: 28px auto 12px;
+      gap: 12px;
     }
 
-    .trusted-item {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid var(--panel-border);
-      border-radius: 16px;
-      padding: 18px 14px;
-      text-align: center;
+    .feature-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px;
       color: var(--muted);
-      font-weight: 600;
+      line-height: 1.5;
     }
 
-    main section {
-      padding: 26px 0;
+    .feature-item .mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-top: 5px;
+      box-shadow: 0 0 10px rgba(58,244,177,0.8);
+      flex-shrink: 0;
     }
 
-    .section-head {
+    .specs-panel {
+      margin-top: 16px;
+      background: rgba(12, 22, 34, 0.84);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0 18px 18px;
+    }
+
+    .specs-title {
       display: flex;
       justify-content: space-between;
-      align-items: end;
-      gap: 16px;
-      margin-bottom: 18px;
+      align-items: center;
+      padding: 18px 0 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 4px;
+      color: rgba(226,236,248,0.85);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
     }
 
-    .section-head h2 {
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 13px;
+    }
+
+    .spec-row:last-child { border-bottom: 0; }
+    .spec-row span:first-child { color: rgba(223,230,240,0.78); }
+    .spec-row span:last-child { color: var(--text); }
+
+    .feature-section {
+      width: min(1180px, calc(100% - 26px));
+      margin: 34px auto 0;
+      padding: 0 0 36px;
+    }
+
+    .feature-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 18px;
+    }
+
+    .feature-header h2 {
       margin: 0;
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-size: 28px;
       letter-spacing: -0.05em;
     }
 
-    .section-head span {
-      color: var(--muted);
-      font-size: 0.94rem;
+    .feature-header .side {
+      color: rgba(204, 216, 231, 0.76);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
     }
 
-    .features-grid {
+    .feature-cards {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      gap: 14px;
     }
 
     .feature-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--panel-border);
-      border-radius: 18px;
-      padding: 22px 18px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+      background: rgba(13, 25, 38, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 16px 16px;
+      min-height: 160px;
     }
 
     .feature-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,122,26,0.12);
-      color: var(--primary);
-      font-size: 1.4rem;
-      margin-bottom: 12px;
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--green);
+      border-radius: 8px;
+      background: rgba(58, 244, 177, 0.08);
+      border: 1px solid rgba(58,244,177,0.18);
+      margin-bottom: 14px;
     }
 
     .feature-card h3 {
       margin: 0 0 8px;
-      font-size: 1.2rem;
+      font-size: 15px;
     }
 
     .feature-card p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 13px;
+      line-height: 1.65;
     }
 
-    .specs-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .specs-card,
-    .review-card,
-    .faq-card,
-    .deal-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--panel-border);
-      border-radius: 22px;
-      padding: 24px 20px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    td {
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      color: var(--muted);
-    }
-
-    tbody tr:last-child td { border-bottom: none; }
-
-    td:first-child {
-      font-weight: 700;
-      color: var(--text);
-      width: 40%;
-    }
-
-    .faq-list, .offer-list, .review-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .review-item {
-      padding: 16px;
-      border-radius: 14px;
-      background: rgba(8,12,18,0.7);
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .review-item strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1.02rem;
-    }
-
-    .review-item .meta {
-      display: block;
-      color: var(--muted);
-      font-size: 0.8rem;
-      margin-bottom: 8px;
-      letter-spacing: 0.04em;
+    .feature-card .readmore {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 10px;
+      color: var(--green);
       text-transform: uppercase;
+      letter-spacing: 0.16em;
     }
 
-    .review-item a {
-      color: var(--secondary);
-      font-weight: 700;
-    }
-
-    .faq-item {
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: rgba(8,12,18,0.7);
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .faq-item strong {
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .faq-item span {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .deal-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: linear-gradient(180deg, rgba(255,122,26,0.12), rgba(255,255,255,0.01));
-    }
-
-    .deal-card h3 {
-      margin: 0 0 12px;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      letter-spacing: -0.05em;
-    }
-
-    .deal-card .price-tag {
-      font-size: 2rem;
-      font-weight: 800;
-      margin: 12px 0 18px;
-      letter-spacing: -0.05em;
-    }
-
-    .offer-list {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .amazon-note {
-      color: var(--muted);
-      font-size: 0.86rem;
-      margin-top: 8px;
-    }
-
-    footer {
-      padding: 30px 0 40px;
-      color: var(--muted);
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      margin-top: 30px;
-    }
-
-    @media (max-width: 900px) {
-      .hero-wrap,
-      .specs-wrap,
-      .features-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-wrap { grid-template-columns: 1fr; }
+    @media (max-width: 980px) {
+      .prod-grid { grid-template-columns: 1fr; }
+      .feature-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 700px) {
-      .nav {
-        flex-direction: column;
-        justify-content: center;
-        padding: 16px 0 14px;
-      }
-
-      .nav-links {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .trusted-bar,
-      .features-grid,
-      .specs-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head { display: block; }
-
-      .cta-row {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid rgba(255, 122, 26, 0.7);
-      outline-offset: 3px;
+      .hero-badge { letter-spacing: 0.12em; }
+      .shield-hero { width: 96%; }
+      .feature-cards { grid-template-columns: 1fr; }
+      .topline-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .thumb-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .price-row { flex-direction: column; align-items: flex-start; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="#top">Ugoos X5M</a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#features">Features</a>
-        <a href="#specs">Specs</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#faq">FAQ</a>
-        <a href="#buy">Buy</a>
-      </nav>
+  <div class="page">
+    <div class="top-shell">
+      <div class="hero-wrap">
+        <div class="hero-top">
+          <div class="hero-badge">
+            <span class="small-mark"></span>
+            <span>Limited Edition</span>
+            <span>•</span>
+            <span>Exclusive</span>
+          </div>
+
+          <div class="shield-hero" aria-label="Ugoos X5M logo banner">
+            <div class="inner"></div>
+            <div class="shield-text">
+              <div class="topline">Cut the cord jump aboard</div>
+              <div class="brand"><span>U</span>goos X5M</div>
+            </div>
+            <div class="mini-scaffold"></div>
+          </div>
+        </div>
+
+        <div class="hero-nav">
+          <div class="pill">Home</div>
+          <div class="pill">Android Box</div>
+          <div class="pill">Ugoos X5M Pro</div>
+          <div class="pill">Root</div>
+          <div class="pill">Wifi</div>
+        </div>
+      </div>
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-wrap">
-        <div>
-          <div class="eyebrow"><span class="dot"></span> Next-gen streaming power</div>
-          <h1>Ugoos X5M TV Box</h1>
-          <p class="lead">Built for IPTV enthusiasts, 4K streamers, power users, and custom setup fans who want smooth performance and total control.</p>
-
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#buy">Buy now</a>
-            <a class="btn btn-secondary" href="#specs">View specs</a>
-            <div class="price"><span>From</span><strong>£150</strong></div>
+    <div class="main-box">
+      <div class="prod-grid">
+        <section class="left-panel">
+          <div class="topline-meta">
+            <span>Home</span>
+            <span class="muted">Android Boxes</span>
+            <span class="muted">Ugoos X5M Pro</span>
+            <span class="muted">★★★★★ 4.9 (127 reviews)</span>
           </div>
 
-          <div class="mini-info">Free UK delivery • 14-day returns • Secure checkout</div>
+          <div class="mini-badges">
+            <span class="tag">New release</span>
+            <span class="tag">Best seller</span>
+          </div>
+
+          <div class="product-stage">
+            <div class="device-visual" aria-label="Product image">
+              <div class="box"></div>
+              <div class="label">Ugoos</div>
+            </div>
+          </div>
+
+          <div class="thumb-row">
+            <div class="thumb"></div>
+            <div class="thumb"></div>
+            <div class="thumb"></div>
+            <div class="thumb"></div>
+          </div>
+
+          <div class="promo-strip">
+            <span class="tag">New</span>
+            <span><strong>£150</strong> from Amazon</span>
+          </div>
+        </section>
+
+        <aside class="right-panel">
+          <div class="buy-box">
+            <div class="product-header">
+              <div class="product-name">Ugoos X5M Pro</div>
+              <div class="stars">★★★★★</div>
+            </div>
+
+            <div class="subline">The new standard</div>
+
+            <div class="price-row">
+              <div class="amount">£170</div>
+              <div class="vat">Inc. VAT</div>
+            </div>
+
+            <div class="info-grid">
+              <div class="mini">Free delivery<strong>Next day</strong></div>
+              <div class="mini">Warranty<strong>2 years</strong></div>
+              <div class="mini">Returns<strong>14 days</strong></div>
+              <div class="mini">Shipping<strong>UK</strong></div>
+            </div>
+
+            <div class="qty-row">
+              <span>Quantity</span>
+              <div class="qty-controls">
+                <button aria-label="Decrease quantity">−</button>
+                <span>1</span>
+                <button aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+
+            <div class="qty-total">£170</div>
+            <a href="#" class="cta-block">Buy Now — £170 UK Stock</a>
+            <a href="#" class="secondary-note">Add to Wishlist — Pay in 3 at £56.66</a>
+
+            <div class="shipping-strip">
+              <span>Order before 10:00</span>
+              <span>Free return shipping</span>
+            </div>
+
+            <div class="feature-summary">
+              <h3>Key benefits</h3>
+              <div class="feature-list">
+                <div class="feature-item"><span class="mark"></span><span>“Even the new Ugoos X5M Pro will beat the Z12 hands down on performance.”</span></div>
+                <div class="feature-item"><span class="mark"></span><span>Designed with premium streaming performance, Android 14 compatibility, and smooth 4K playback.</span></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="specs-panel">
+        <div class="specs-title">
+          <span>Key specifications</span>
         </div>
 
-        <div class="product-panel">
-          <div class="product-thumb">
-            <img src="product-art.svg" alt="Ugoos X5M Android TV box illustration" width="620" height="520">
-          </div>
-          <div class="product-meta">
-            <span class="chip">4K HDR</span>
-            <span>Android TV / IPTV Ready</span>
-          </div>
-        </div>
+        <div class="spec-row"><span>SoC</span><span>Amlogic S905X5M Gen 3, Quad-core ARM Cortex-A55</span></div>
+        <div class="spec-row"><span>GPU</span><span>Mali-G31 MP2 + AI-SR</span></div>
+        <div class="spec-row"><span>RAM / Storage</span><span>4GB + 32GB / 8GB + 64GB</span></div>
+        <div class="spec-row"><span>OS</span><span>Android 14 + Ugoos custom firmware</span></div>
+        <div class="spec-row"><span>Network</span><span>Wi-Fi 6 + BT 5.4 + Gigabit LAN</span></div>
+        <div class="spec-row"><span>Video</span><span>4K Dolby Vision + AV1 + HDR10+</span></div>
+      </div>
+    </div>
+
+    <section class="feature-section">
+      <div class="feature-header">
+        <h2>Engineered for power users.</h2>
+        <div class="side">6 premium features • no bloat</div>
+      </div>
+
+      <div class="feature-cards">
+        <article class="feature-card">
+          <div class="feature-icon">⚙</div>
+          <h3> Samba Server</h3>
+          <p>Built in SAMBA server. Share USB drives &amp; internal storage with your home network and smart devices.</p>
+          <span class="readmore">Learn More</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">◉</div>
+          <h3>Mobile Android 14 APK Freedom</h3>
+          <p>Full Google Play + sideloaded apps, installed to run smoother on Android 14 while keeping performance high.</p>
+          <span class="readmore">Learn More</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">✦</div>
+          <h3>AI-SR Upscaling</h3>
+          <p>Enjoy high-quality visuals with AI super resolution to sharpen details and improve overall clarity.</p>
+          <span class="readmore">Learn More</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">⌁</div>
+          <h3>Wi-Fi 6</h3>
+          <p>Faster, more stable home networking with reliable speeds for 4K streams, cloud apps and live IPTV.</p>
+          <span class="readmore">Learn More</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">✶</div>
+          <h3>Root Access</h3>
+          <p>Unlock flexible customisation options and advanced setups for power users who want extra control.</p>
+          <span class="readmore">Learn More</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">◌</div>
+          <h3>Fast Boot</h3>
+          <p>Quick startup and app response for a cleaner, more responsive entertainment experience every day.</p>
+          <span class="readmore">Learn More</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">▣</div>
+          <h3>Multi-Device Ready</h3>
+          <p>Seamlessly pair with a range of accessories and home entertainment setups for everyday convenience.</p>
+          <span class="readmore">Learn More</span>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">↺</div>
+          <h3>Heat Efficient</h3>
+          <p>Built for sustained loads with low-noise thermal stability to keep performance steady over time.</p>
+          <span class="readmore">Learn More</span>
+        </article>
       </div>
     </section>
-
-    <section>
-      <div class="container trusted-bar" aria-label="Store trust highlights">
-        <div class="trusted-item">Fast UK Shipping</div>
-        <div class="trusted-item">4K HDR Ready</div>
-        <div class="trusted-item">IPTV Friendly</div>
-        <div class="trusted-item">Secure checkout</div>
-      </div>
-    </section>
-
-    <section id="features">
-      <div class="container">
-        <div class="section-head">
-          <h2>Why choose the X5M</h2>
-          <span>Powerful streaming with comfort and flexibility</span>
-        </div>
-
-        <div class="features-grid">
-          <article class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Performance</h3>
-            <p>Modern Amlogic hardware for smooth 4K playback, quick app launches, and fast multitasking.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">📺</div>
-            <h3>4K HDR</h3>
-            <p>Enjoy crisp visuals and vibrant colour for movies, sport, and IPTV channels in ultra-clear detail.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">📶</div>
-            <h3>Reliable Connectivity</h3>
-            <p>Dual-band Wi-Fi and Ethernet support for stable streaming and reliable app performance.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">🛠️</div>
-            <h3>Custom Control</h3>
-            <p>Ideal for custom launchers, advanced settings, and users who like tweaking their media setup.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="specs">
-      <div class="container specs-wrap">
-        <div class="specs-card">
-          <div class="section-head" style="margin-bottom:10px;">
-            <h2>Technical specs</h2>
-          </div>
-          <table>
-            <tbody>
-              <tr><td>Chipset</td><td>Amlogic S905X5M</td></tr>
-              <tr><td>CPU</td><td>Quad-core ARM Cortex-A55</td></tr>
-              <tr><td>GPU</td><td>Mali-G31</td></tr>
-              <tr><td>RAM</td><td>4GB / 8GB</td></tr>
-              <tr><td>Storage</td><td>32GB / 64GB</td></tr>
-              <tr><td>Output</td><td>4K UHD, HDR</td></tr>
-              <tr><td>Connectivity</td><td>Wi‑Fi, Bluetooth, Ethernet</td></tr>
-              <tr><td>Ports</td><td>HDMI, USB 3.0, USB 2.0, LAN, AV</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="deal-card" id="buy">
-          <h3>Buy the X5M</h3>
-          <div class="price-tag">£150</div>
-          <ul class="offer-list">
-            <li>Includes HDMI cable and power adapter</li>
-            <li>Fast dispatch from the UK</li>
-            <li>Secure PayPal / card payment</li>
-            <li>Amazon price: £150</li>
-          </ul>
-          <a class="btn btn-primary" href="#">Order now</a>
-          <div class="amazon-note">Amazon pricing may vary by seller and stock availability.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="reviews">
-      <div class="container">
-        <div class="section-head">
-          <h2>YouTube reviews</h2>
-        </div>
-
-        <div class="review-list">
-          <div class="review-item">
-            <span class="meta">TV Box Stop • About 2 months ago</span>
-            <strong>Ugoos X5M Pro - These Android TV Boxes Are Really The Best!!!</strong>
-            <a href="https://www.youtube.com/watch?v=0WM-PdVgxPE" target="_blank" rel="noreferrer">Watch review</a>
-          </div>
-
-          <div class="review-item">
-            <span class="meta">Jayce Ooi • July 22, 2025</span>
-            <strong>Ugoos X5m Pro In-Depth Review - AOSP Android 14 TV Box With Amlogic S905x5m!</strong>
-            <a href="https://www.youtube.com/watch?v=K28X8DRRl-M" target="_blank" rel="noreferrer">Watch review</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="container">
-        <div class="section-head">
-          <h2>FAQ</h2>
-        </div>
-
-        <div class="faq-list">
-          <div class="faq-item">
-            <strong>Does it support IPTV apps?</strong>
-            <span>Yes — it’s ideal for popular IPTV apps and custom media setups.</span>
-          </div>
-
-          <div class="faq-item">
-            <strong>Is it Google-certified?</strong>
-            <span>Not officially certified, so some premium apps may have restrictions depending on your setup.</span>
-          </div>
-
-          <div class="faq-item">
-            <strong>Do you offer returns?</strong>
-            <span>Yes — standard return policy applies. Contact us for the exact terms.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © 2026 Ugoos X5M — Your Store Name Here
-  </footer>
+  </div>
 </body>
 </html>
