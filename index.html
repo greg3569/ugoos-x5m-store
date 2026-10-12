@@ -18,7 +18,7 @@
       --primary-dark: #de6700;
       --secondary: #1d9bf0;
       --success: #2ad59e;
-      --shadow: rgba(0, 0, 0, 0.35);
+      --shadow: rgba(0,0,0,0.35);
     }
 
     * { box-sizing: border-box; }
@@ -305,6 +305,7 @@
     }
 
     .specs-card,
+    .review-card,
     .faq-card,
     .deal-card {
       background: rgba(255,255,255,0.03);
@@ -332,10 +333,37 @@
       width: 40%;
     }
 
-    .faq-list, .offer-list {
+    .faq-list, .offer-list, .review-list {
       display: grid;
       gap: 16px;
       margin-top: 8px;
+    }
+
+    .review-item {
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(8,12,18,0.7);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .review-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.02rem;
+    }
+
+    .review-item .meta {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .review-item a {
+      color: var(--secondary);
+      font-weight: 700;
     }
 
     .faq-item {
@@ -381,6 +409,12 @@
       font-size: 0.95rem;
     }
 
+    .amazon-note {
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-top: 8px;
+    }
+
     footer {
       padding: 30px 0 40px;
       color: var(--muted);
@@ -396,9 +430,7 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .hero-wrap {
-        grid-template-columns: 1fr;
-      }
+      .hero-wrap { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 700px) {
@@ -420,9 +452,7 @@
         grid-template-columns: 1fr;
       }
 
-      .section-head {
-        display: block;
-      }
+      .section-head { display: block; }
 
       .cta-row {
         align-items: flex-start;
@@ -443,6 +473,7 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#features">Features</a>
         <a href="#specs">Specs</a>
+        <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
         <a href="#buy">Buy</a>
       </nav>
@@ -525,7 +556,7 @@
     <section id="specs">
       <div class="container specs-wrap">
         <div class="specs-card">
-          <div class="section-head" style="margin-bottom: 10px;">
+          <div class="section-head" style="margin-bottom:10px;">
             <h2>Technical specs</h2>
           </div>
           <table>
@@ -549,9 +580,32 @@
             <li>Includes HDMI cable and power adapter</li>
             <li>Fast dispatch from the UK</li>
             <li>Secure PayPal / card payment</li>
-            <li>Also listed on Amazon for £150</li>
+            <li>Amazon price: £150</li>
           </ul>
           <a class="btn btn-primary" href="#">Order now</a>
+          <div class="amazon-note">Amazon pricing may vary by seller and stock availability.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <h2>YouTube reviews</h2>
+        </div>
+
+        <div class="review-list">
+          <div class="review-item">
+            <span class="meta">TV Box Stop • About 2 months ago</span>
+            <strong>Ugoos X5M Pro - These Android TV Boxes Are Really The Best!!!</strong>
+            <a href="https://www.youtube.com/watch?v=0WM-PdVgxPE" target="_blank" rel="noreferrer">Watch review</a>
+          </div>
+
+          <div class="review-item">
+            <span class="meta">Jayce Ooi • July 22, 2025</span>
+            <strong>Ugoos X5m Pro In-Depth Review - AOSP Android 14 TV Box With Amlogic S905x5m!</strong>
+            <a href="https://www.youtube.com/watch?v=K28X8DRRl-M" target="_blank" rel="noreferrer">Watch review</a>
+          </div>
         </div>
       </div>
     </section>
