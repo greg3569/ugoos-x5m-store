@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "league": "NFL Sunday Night Football",
+    "title": "Chiefs @ Eagles",
+    "status": "Live Now",
+    "time": "8:15 PM",
+    "channel": "Sky Sports Main Event",
+    "network": "Sky Sports",
+    "description": "A high-stakes primetime clash with playoff implications across both conferences.",
+    "score": "27 - 24",
+    "tag": "Prime Time"
+  },
+  "liveNow": [
+    {
+      "title": "Manchester United vs Arsenal",
+      "league": "Premier League",
+      "channel": "Sky Sports Premier League",
+      "time": "7:30 PM",
+      "status": "Live",
+      "accent": "red"
+    },
+    {
+      "title": "NHL: Maple Leafs vs Bruins",
+      "league": "NHL",
+      "channel": "ESPN+",
+      "time": "7:00 PM",
+      "status": "Live",
+      "accent": "blue"
+    },
+    {
+      "title": "UFC Fight Night",
+      "league": "UFC",
+      "channel": "DAZN",
+      "time": "9:00 PM",
+      "status": "Live",
+      "accent": "purple"
+    },
+    {
+      "title": "NBA: Lakers vs Celtics",
+      "league": "NBA",
+      "channel": "NBA TV",
+      "time": "9:30 PM",
+      "status": "Live",
+      "accent": "gold"
+    }
+  ],
+  "upcoming": [
+    {
+      "title": "Liverpool vs Tottenham",
+      "league": "Premier League",
+      "channel": "BT Sport 1",
+      "time": "Tomorrow • 12:30 PM",
+      "status": "Upcoming"
+    },
+    {
+      "title": "NHL Playoffs: Avalanche vs Stars",
+      "league": "NHL",
+      "channel": "TNT",
+      "time": "Tomorrow • 8:00 PM",
+      "status": "Upcoming"
+    },
+    {
+      "title": "Canelo vs Berlanga",
+      "league": "Boxing",
+      "channel": "PPV",
+      "time": "Saturday • 11:00 PM",
+      "status": "PPV"
+    },
+    {
+      "title": "MLB: Yankees vs Red Sox",
+      "league": "MLB",
+      "channel": "ESPN",
+      "time": "Sunday • 7:15 PM",
+      "status": "Upcoming"
+    }
+  ],
+  "guide": [
+    { "time": "6:00 PM", "event": "Pre-game show", "channel": "Sky Sports News", "type": "News" },
+    { "time": "6:30 PM", "event": "Premier League build-up", "channel": "Sky Sports Main Event", "type": "Talk" },
+    { "time": "7:00 PM", "event": "NHL: Toronto vs Boston", "channel": "ESPN+", "type": "Live" },
+    { "time": "7:30 PM", "event": "Manchester United vs Arsenal", "channel": "Sky Sports Premier League", "type": "Live" },
+    { "time": "8:15 PM", "event": "Chiefs vs Eagles", "channel": "Sky Sports Main Event", "type": "Live" },
+    { "time": "9:00 PM", "event": "UFC Fight Night", "channel": "DAZN", "type": "Live" },
+    { "time": "9:30 PM", "event": "NBA: Lakers vs Celtics", "channel": "NBA TV", "type": "Live" },
+    { "time": "11:00 PM", "event": "Final Whistle Review", "channel": "BBC One", "type": "Review" }
+  ]
+}
